@@ -1,6 +1,38 @@
-print("můžu mrdat tkovéhle zasrané projekty")
+import csv
 
-"""                                      
+
+def load_elements_from_csv(csv_file):
+    elements = []
+    with open(csv_file, 'r', encoding="utf-8") as file:
+        csv_reader = csv.reader(file)
+        for row in csv_reader:
+            elements.append(row)
+    return elements
+
+
+def display(element):
+    for element in element:
+        print(element)
+
+
+elements = load_elements_from_csv('elements.csv')
+
+while True:
+    print("1. Display all elements")
+    print("0. exit")
+    choice = input("Enter your choice: ")
+
+    if choice == "0":
+        print("Closing the application. Goodbye")
+        break
+    elif choice == "1":
+        print("displaying all elements: ")
+        display(elements)
+    else:
+        print("Invalid choice. Please try again.")
+
+"""
+                                      
                                                                                                    
                             .-*%*+=====+#%#:.                                                      
                          -#+=================+#:       .-#%*++======+++*%%*:.                      
