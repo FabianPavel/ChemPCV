@@ -1,0 +1,1 @@
+print("můžu mrdat tkovéhle zasrané projekty")
