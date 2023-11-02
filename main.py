@@ -10,8 +10,16 @@ def load_elements_from_csv(csv_file):
     return elements
 
 
-def display(element):
-    for element in element:
+def search(elements, phrase):
+    found = []
+    for element in elements:
+        if phrase.lower() == element[1].lower() or phrase.lower() == element[2].lower():
+            found.append(element)
+    return found
+
+
+def display(elements):
+    for element in elements:
         print(element)
 
 
@@ -19,6 +27,7 @@ elements = load_elements_from_csv('elements.csv')
 
 while True:
     print("1. Display all elements")
+    print("2. Search for element by name or symbol")
     print("0. exit")
     choice = input("Enter your choice: ")
 
@@ -28,12 +37,17 @@ while True:
     elif choice == "1":
         print("displaying all elements: ")
         display(elements)
+    elif choice == "2":
+        phrase = input("Enter name or symbol of element to search for: ")
+        found = search(elements, phrase)
+        if found:
+            display(found)
+        else:
+            print("Element not found. Please try again.")
     else:
         print("Invalid choice. Please try again.")
 
-"""
-                                      
-                                                                                                   
+"""                                                           
                             .-*%*+=====+#%#:.                                                      
                          -#+=================+#:       .-#%*++======+++*%%*:.                      
                       .*========================*: :#*========================*#:                  
