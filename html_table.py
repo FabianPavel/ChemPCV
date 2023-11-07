@@ -9,7 +9,7 @@ def gen_html(input_file, output_file):
     html_content = """
     <html>
     <head>
-        <meta charset="UTF-8">  # Add this line to specify UTF-8 encoding
+        <meta charset="UTF-8">
         <style>
             table {
                 border-collapse: collapse;
