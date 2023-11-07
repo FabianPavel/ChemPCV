@@ -30,36 +30,41 @@ def display(elements):
     for element in elements:
         print(element)
 
+def main():
+    elements = load_elements_from_csv('elements.csv')
+    groups = load_elements_from_json('groups.json')
 
-elements = load_elements_from_csv('elements.csv')
-groups = load_elements_from_json('groups.json')
+    while True:
+        print("1. Display all elements")
+        print("2. Display all groups")
+        print("3. create html table")
+        print("10. Search for element by name or symbol")
+        print("0. exit")
+        choice = input("Enter your choice: ")
 
-while True:
-    print("1. Display all elements")
-    print("2. Display all groups")
-    print("3. create html table")
-    print("10. Search for element by name or symbol")
-    print("0. exit")
-    choice = input("Enter your choice: ")
-
-    if choice == "0":
-        print("Closing the application. Goodbye")
-        break
-    elif choice == "1":
-        print("displaying all elements: ")
-        display(elements)
-    elif choice == "2":
-        print("displaying all groups: ")
-        display(groups)
-    elif choice == "3":
-        print("created html table ")
-        gen_html("elements.csv", 'periodic_table.html')
-    elif choice == "10":
-        phrase = input("Enter name or symbol of element to search for: ")
-        found = search(elements, phrase)
-        if found:
-            display(found)
+        if choice == "0":
+            print("Closing the application. Goodbye")
+            break
+        elif choice == "1":
+            print("displaying all elements: ")
+            display(elements)
+        elif choice == "2":
+            print("displaying all groups: ")
+            display(groups)
+        elif choice == "3":
+            print("created html table ")
+            gen_html("elements.csv", 'periodic_table.html')
+        elif choice == "10":
+            phrase = input("Enter name or symbol of element to search for: ")
+            found = search(elements, phrase)
+            if found:
+                print(elements[0])
+                display(found)
+            else:
+                print("Element not found. Please try again.")
         else:
-            print("Element not found. Please try again.")
-    else:
-        print("Invalid choice. Please try again.")
+            print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
