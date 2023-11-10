@@ -2,6 +2,7 @@ import csv
 import json
 
 from html_table import gen_html
+import calc
 
 
 def load_elements_from_json(json_file):
@@ -37,7 +38,8 @@ def main():
     while True:
         print("1. Display all elements")
         print("2. Display all groups")
-        print("3. create html table")
+        print("3. Create html table")
+        print("4. Calculate average atomic mass")
         print("10. Search for element by name or symbol")
         print("0. exit")
         choice = input("Enter your choice: ")
@@ -54,6 +56,8 @@ def main():
         elif choice == "3":
             print("created html table ")
             gen_html("elements.csv", 'periodic_table.html')
+        elif choice == "4":
+            calc.main()
         elif choice == "10":
             phrase = input("Enter name or symbol of element to search for: ")
             found = search(elements, phrase)
