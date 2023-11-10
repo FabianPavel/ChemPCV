@@ -6,7 +6,7 @@ Pavel Fabián & Lukáš Olbrecht
 To Do
 
 Luky:
-    výpočet
+    výpočet - prilis ez, already done niggga
 
 Pavel:
     zbyle výstupní soubory
