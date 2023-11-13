@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def create_markdown_table(elements):
     markdown_content = "## Overview of Elements\n\n"
     markdown_content += "| Symbol | Element | Atomic Number | Atomic Mass |  Group | Period |\n"
@@ -23,15 +24,17 @@ def create_markdown_table(elements):
 
     return markdown_content
 
+
 def save_to_markdown(markdown_content, output_file):
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(markdown_content)
+
 
 def main():
     # Load CSV data using pandas
     elements = pd.read_csv('elements.csv')
 
-    category = input("Enter 'group' or 'period' to calculate average atomic mass: ").lower()
+    category = input("Enter 'group' or 'period' : ").lower()
 
     if category == 'group':
         group = input("Enter the group name: ")
@@ -57,5 +60,3 @@ def main():
     else:
         print("Invalid input. Please enter 'group' or 'period'.")
         return
-
-

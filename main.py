@@ -1,22 +1,61 @@
+"""
+Chemistry Toolkit
+
+This script provides a simple command-line interface for various chemistry-related operations,
+including displaying elements and groups, generating HTML tables, calculating average atomic mass,
+creating markdown files, generating XML files, and searching for elements by name or symbol.
+
+Dependencies:
+- pandas
+- html_table
+- calc (assumed to be a separate module with a 'main' function)
+- markdown (assumed to be a separate module with a 'main' function)
+- xml (assumed to be a separate module with a 'main' function)
+
+Author: Luky & Pavel
+"""
+
+# Importing necessary modules
 import pandas as pd
 from html_table import gen_html
-import calc, markdown, xml
+import calc
+import markdown
+import xml
 
 
 def search(elements, phrase):
+    """
+    Search for an element by name or symbol in the given DataFrame.
+
+    Parameters:
+    - elements (pd.DataFrame): DataFrame containing information about chemical elements.
+    - phrase (str): Name or symbol of the element to search for.
+
+    Returns:
+    pd.DataFrame: DataFrame containing the found element(s) or an empty DataFrame if not found.
+    """
     condition = (elements['Element'] == phrase) | (elements['Symbol'] == phrase)
     return elements[condition]
 
 
 def main():
+    """
+    Main function to run the chemistry toolkit.
+
+    Displays a menu with options for different chemistry-related operations and performs the selected operation.
+    """
+    # Setting pandas display options
     pd.set_option('display.max_rows', None)
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', None)
     pd.set_option('display.max_colwidth', None)
+
+    # Reading data from CSV and JSON files
     elements = pd.read_csv('elements.csv')
     groups = pd.read_json('groups.json')
 
     while True:
+        # Displaying menu options
         print("1. Display all elements")
         print("2. Display all groups")
         print("3. Create html table")
