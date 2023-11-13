@@ -38,5 +38,3 @@ def main():
     else:
         print(f"No elements found for {category} {group_number if category == 'group' else period_number}.")
 
-if __name__ == "__main__":
-    main()

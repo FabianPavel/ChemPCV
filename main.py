@@ -1,8 +1,6 @@
 import pandas as pd
-
 from html_table import gen_html
-import calc
-import markdown
+import calc, markdown, xml
 
 
 def search(elements, phrase):
@@ -24,7 +22,8 @@ def main():
         print("3. Create html table")
         print("4. Calculate average atomic mass")
         print("5. Create markdown file with specific period or group")
-        print("10. Search for element by name or symbol")
+        print("6. Create xml file with wanted element")
+        print("7. Search for element by name or symbol")
         print("0. exit")
         choice = input("Enter your choice: ")
 
@@ -44,7 +43,9 @@ def main():
             calc.main()
         elif choice == "5":
             markdown.main()
-        elif choice == "10":
+        elif choice == "6":
+            xml.main()
+        elif choice == "7":
             phrase = input("Enter name or symbol of element to search for: ")
             found = search(elements, phrase)
             if not found.empty:
