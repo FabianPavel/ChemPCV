@@ -1,7 +1,32 @@
+"""
+Markdown Table Generator for Chemical Elements
+
+This script takes data about chemical elements from a CSV file, allows the user to input
+a group or period, selects the elements matching the input, and generates a Markdown table.
+The Markdown table is saved to an output file.
+
+Usage:
+1. Run the script.
+2. Enter 'group' or 'period' when prompted.
+3. Enter the group name or period number accordingly.
+4. The script will create a Markdown file containing information about the selected group or period.
+
+Author: Pavel
+"""
+
 import pandas as pd
 
 # Function to create a Markdown table from a DataFrame of chemical elements
 def create_markdown_table(elements):
+    """
+    Create a Markdown table from a DataFrame containing information about chemical elements.
+
+    Parameters:
+    - elements (pd.DataFrame): DataFrame containing information about chemical elements.
+
+    Returns:
+    str: Markdown content representing the table.
+    """
     markdown_content = "## Overview of Elements\n\n"
     markdown_content += "| Symbol | Element | Atomic Number | Atomic Mass |  Group | Period |\n"
     markdown_content += "|--------|--------|---------------|-------------|-------|--------|\n"
@@ -28,11 +53,21 @@ def create_markdown_table(elements):
 
 # Function to save Markdown content to a file
 def save_to_markdown(markdown_content, output_file):
+    """
+    Save the Markdown content to a file.
+
+    Parameters:
+    - markdown_content (str): Markdown content to be saved.
+    - output_file (str): The path to the Markdown file where the content will be saved.
+    """
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(markdown_content)
 
 # Main function
 def main():
+    """
+    Main function to run the Markdown Table Generator for Chemical Elements.
+    """
     # Load CSV data using pandas
     elements = pd.read_csv('elements.csv')
 
