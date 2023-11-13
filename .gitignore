@@ -1,2 +1,5 @@
 venv/
 .venv/
+*.md
+*.html
+*.xml
